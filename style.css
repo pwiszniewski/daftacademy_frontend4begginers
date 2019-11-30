@@ -15,32 +15,24 @@ Więcej na ten temat: https://cssreset.com/what-is-a-css-reset/
 body {
     margin: 0;
     padding: 0;
-    background-image: url("images/background.svg");
-    background-color: #25072E;
-    background-attachment: fixed;
+    /*
+    "background-image" - ustawiamy obrazek z projektu graficznego jako tło całej witryny
+    "background-size: cover" sprawia, że obrazek tła będzie skalowany tak, żeby wypełniać ekran w całości
+        niezależnie od proporcji ekranu
+    ""
+
+    */
+    background-image: url('./images/background.svg');
+    /*
+    */
+    background-size: cover;
+    background-position: center;
     background-repeat: no-repeat;
-    background-size: 100%;
-    font-family: Helvetica;
-    letter-spacing: 3px;
-    font-weight: bold;
+    background-attachment: fixed;
 }
 
 h1, h2, h3 {
     margin: 0;
-}
-
-h1 {
-    font-family: OpenSans;
-    font-size: 28px;
-    font-weight: bold;
-    letter-spacing: 4.5px;
-}
-
-h2 {
-    font-family: OpenSans;
-    font-size: 15px;
-    font-weight: bold;
-    letter-spacing: 3.8px;
 }
 
 ul {
@@ -57,7 +49,6 @@ Rekomendowany zestaw właściwości, które pozwalają na ukrycie tekstu w taki 
 
 Więcej na ten temat: https://webaim.org/techniques/css/invisiblecontent/
 */
-
 .screen-reader-only {
     position: absolute;
     left: -10000px;
@@ -68,21 +59,76 @@ Więcej na ten temat: https://webaim.org/techniques/css/invisiblecontent/
 }
 
 /*
-Sekcja pomocnicza, aby zwizualizować pozycje głównych bloków strony. Będzie usunięta w następnych krokach.
+######################################
+TYPOGRAFIA
+######################################
 */
-.page-header {
+
+body {
+    color: rgba(204, 200, 255, 0.8);
+    font-family: 'Open Sans', sans-serif;
+    font-size: 13px;
+    font-weight: normal;
 }
 
-.page-content {
+a {
+    color: #EF008E;
+    text-decoration: none;
 }
 
-.page-footer {
-}
-
-.content-section {
-}
 /*
-Koniec sekcji pomocniczej
+######################################
+PRZYCISKI
+######################################
+*/
+
+.button {
+    padding: 7px 15px;
+    border-radius: 3px;
+    background-color: rgba(204, 200, 255, 0.1);
+    border-color: rgba(204, 200, 255, 0.1);
+
+    color: rgba(204, 200, 255, 0.8);
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1.6px;
+    cursor: pointer;
+}
+
+.button--contact {
+    margin-top: 20px;
+}
+
+/*
+######################################
+FORMULARZE
+######################################
+*/
+
+.form__field {
+    margin-bottom: 10px;
+}
+
+.form__label {
+    display: block;
+    margin-bottom: 9px;
+}
+
+.form__input {
+    display: block;
+    height: 35px;
+    width: 300px;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    background-color: rgba(219, 216, 251, 0.1);
+}
+
+/*
+######################################
+GŁÓWNY LAYOUT STRONY
+######################################
 */
 
 /*
@@ -111,343 +157,283 @@ o 50px, więc można założyć, że 220px marginesu będzie wartością stosunk
 Z kolei spady (padding) nadane na kontener wyznaczają minimalną odległość, na jaką będzie oddalona
 treść strony od otaczających ją granic kontenera (wartość "0 10%" jest
 skrótem od padding-top: 0, padding-bottom: 0, padding-left: 10%, padding-right: 10%).
+Więcej skrótów paddingu: https://developer.mozilla.org/en-US/docs/Web/CSS/padding
 Właściwość "text-align: right" przykleja zawartość do prawej strony
 (oddziałuje na elementy, które są elementami inline'owymi, np. tekst, znaczniki <a>, <span> czy elementy z nadanym stylem "display: inline-block").
 */
 .page-content {
     margin-left: 220px;
     padding: 0 10%;
-    text-align: right;
 }
+
+/*
+######################################
+NAWIGACJA
+######################################
+*/
+
+.page-navigation__items {
+    padding-top: 15px;
+}
+
+.page-navigation__link {
+    line-height: 30px;
+    text-transform: uppercase;
+    letter-spacing: 6.7px;
+}
+
+/*
+######################################
+LINKI DO SOCIAL MEDIA
+######################################
+*/
+
+
+.social-links__item + .social-links__item {
+    margin-top: 15px;
+}
+
+.social-links__img {
+    width: 20px;
+    height: 20px;
+}
+
+/*
+######################################
+STYLE WSPÓLNE DLA WSZYSTKICH SEKCJI
+######################################
+*/
 
 /*
 Projekt graficzny zakłada, że każda sekcja strony będzie wypełniać całą wysokość okna przeglądarki
 lub więcej, jeśli zawartość danej sekcji jest wyższa. Dlatego świetnym rozwiązaniem
 będzie użycie jednostki "vh", która oznacza 1% wysokości okna przeglądarki z właściwością "min-height",
 która wymusza wysokość elementu na zadaną wartość lub wyższą.
+
+Następnie sekcje zostają zdefiniowane jako kontener flexbox (display: flex) co pozwala
+na większą kontrolę nad zachowaniem elementów wewnątrz.
+Zakładamy, ze każda sekcja strony ma bazową strukturę w formacie:
+
+    <section class="content-section">
+        <h2 class="content-section__header">{nagłówek sekcji}</h2>
+        <div class="content-section__body">
+            {zawartość sekcji}
+        </div>
+    </section>
 */
-
-/* Menu */
-
-.page-navigation {
-    margin-top: 15px;
-    margin-left: -5px;
-}
-
-.page-navigation__item {
-    font-family: Helvetica;
-    font-size: 13px;
-    font-weight: bold;
-    text-transform: uppercase; 
-    letter-spacing: 6.7px;
-    padding: 8px;
-    
-}
-
-.page-navigation__item a:link, a:visited {
-    text-decoration: none;
-    color: rgb(236, 0, 140, 0.7);
-    letter-spacing: 6.7px;
-  }
-
-.page-navigation__item a:hover, a:active {
-    color: rgb(236, 0, 140, 0.9);
-    letter-spacing: 6.5px;
-}
-
-.page-navigation__item a:pressed {
-    color: rgb(236, 0, 140, 0.6);
-    letter-spacing: 6.7px;
-}
-
-.page-navigation__item a:disabled {
-    color: rgb(236, 0, 140, 1.0);
-    letter-spacing: 6.7px;
-}
-
-/* Content */
-
-.page-content {
-    margin-top: 300px;
-}
-
 .content-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-end;
     min-height: 100vh;
 }
 
 .content-section__header {
-    color: #EC008C;
-    font-family: Helvetica;
-    text-transform: uppercase;
-    font-weight: bold;
+    margin-bottom: 60px;
+    color: #EF008E;
     font-size: 28px;
-    margin-bottom: 30px;
-}
-
-.button {
-    display: inline-block;
-    background-color: rgba(204, 200, 255, 0.15);
-    color:rgba(204, 200, 255);
+    font-weight: bold;
+    letter-spacing: 4.5px;
     text-transform: uppercase;
-    border: none;
-    border-radius: 3px;
-    padding: 5px 10px;
-    width: 110px;
-    position: relative;
 }
 
-.button:hover {
-    background-color: rgba(204, 200, 255, 0.5);
+.content-section__body {
+    flex-grow: 1;
 }
 
-/* Band */
+/*
+######################################
+SEKCJA "HOME"
+######################################
+*/
 
-.band-members{
-    width: 100%;
+.content-section.home-section {
+    align-items: center;
+}
+
+.band-members {
     display: flex;
-    flex-wrap: wrap;
-    column-gap: 10px;
+    flex-direction: row;
+    align-items: center;
 }
 
-.band-members__item {
-    letter-spacing: 4px;
-    text-align: left;
-    opacity: 0.6;
-}
-
-.band-members__item:hover {
-    letter-spacing: 4px;
-    text-align: left;
-    opacity: 1;
-}
-
-.band-members__image ~p {
+/*
+Tymczasowo ukrywamy tę sekcję, zajmiemy się nią na następnych zajęciach.
+*/
+.band-members__name,
+.band-members__desc {
     display: none;
 }
 
-.band-members__image:hover ~p  {
-    display: block;
+/*
+######################################
+SEKCJA "ABOUT"
+######################################
+*/
+
+/*
+Żeby ustawić opis zespołu w rogu zdjęcia, można zastosować popularną sztuczkę z pozycjonowaniem.
+Wykorzystuje ona właściwość elementów z "position: absolute", których położenie jest ustalane
+względem najbliższego mu rodzica, który jest pozycjonowany (ma ustawione "position" na inne
+niż "static", czyli "absolute", "relative", "fixed" lub "sticky").
+
+Dlatego gdy na jego rodzica "about" ustawimy "position: relative" (które bez parametrów
+dodatkowych top, left, bottom, right, nic nie zmienia w jego pozycji), to zawarty w nim
+element "about__desc" ustawia się absolutnie względem niego.
+
+Gdy dodamy wartości "left: -290px" i "bottom: -115px", wtedy "about__desc" będzie wystawać
+z lewego dolnego rogu "about" dokładnie o te odległości.
+
+Natomiast aby nie dopuścić do sytuacji, że wystający "about__desc" nachodził
+na sąsiadujące sekcje na stronie, nadajemy "about" marginesy adekwatne do odległości
+podane przy pozycjonowaniu "about_desc".
+*/
+.about {
+    position: relative;
+    margin-left: 290px;
+    margin-bottom: 115px;
 }
 
-.band-members__name {
+.about__image {
+    max-width: 100%;
+    border-top: 3px solid #EF008E;
+}
+
+.about__desc-header {
+    margin-bottom: 30px;
     color: #CCC8FF;
-    text-transform: uppercase;
+    font-size: 15px;
     font-weight: bold;
-    font-size: 14px;
+    text-transform: uppercase;
 }
 
-.band-members__desc {
-    color: rgb(204, 200, 255, 0.5);
-    font-size: 12px;
-    margin-top: -8px;
-}
-
-/* About */
-
-#about {
-    position: relative;
-    top: -100px;
-}
-.about-section img {
-    border-top: 4px #EC008C solid;
-}
-
-.about-section__desc {
-    background-color: #25072E;
-    position: relative;
-    top: -200px;
-    width: 408px;
+.about__desc {
+    position: absolute;
+    left: -290px;
+    bottom: -115px;
+    width: 380px;
     padding: 30px;
-    border-bottom: 4px #EC008C solid;
-    letter-spacing: 2.5px;
-    text-align: left;
-    line-height: 1.3;
+    background-color: #25072e;
+    border-bottom: 3px solid #EF008E;
 }
 
-.about-section__desc-header {
-    color: #CCC8FF;
-    text-transform: uppercase;
-    font-weight: bold;
-    font-size: 14px;
-}
-
-.about-section__desc-details {
-    color: rgb(204, 200, 255, 0.5);
-    font-size: 13px;
-}
-
-/* Concerts */
+/*
+######################################
+SEKCJA "CONCERTS"
+######################################
+*/
 
 .concerts {
+    width: 80%;
     display: grid;
-    grid-template-columns: 1fr 1fr; 
-    float: right;
-    grid-gap: 25px;
-  }
-
-.concerts__item {
-    width: 350px;
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 55px;
+    row-gap: 45px;
 }
 
 .concerts__image {
-    width: 100%;
-    border-bottom: 4px #EC008C solid;
+    max-width: 100%;
+    border-bottom: 3px solid #EF008E;
 }
 
 .concerts__info {
-    text-align: left;
-    line-height: 0.5;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding-top: 10px;
+}
+
+.concerts__info-base {
+    flex-grow: 1;
 }
 
 .concerts__date {
+    margin: 0;
     color: #CCC8FF;
-    text-transform: uppercase;
+    font-size: 15px;
     font-weight: bold;
-    font-size: 16px;
+    text-transform: uppercase;
+    letter-spacing: 3.8px;
 }
 
 .concerts__location {
-    color: rgb(204, 200, 255, 0.5);
-    font-size: 14px;
+    margin: 0;
+    letter-spacing: 3.8px;
 }
 
-.concerts__info button {
-    top: -50px;
-    left: 245px;
+/*
+######################################
+SEKCJA "VIDEO"
+######################################
+*/
+
+.embedded-video {
+    border-top: 3px solid #EF008E;
 }
 
-/* Video */
+/*
+######################################
+SEKCJA "PHOTOS"
+######################################
+*/
 
-#video {
-    margin-top: 150px;
-}
-#video iframe {
-    border-top: 4px #EC008C solid;
-}
-
-/* Gallery */
-
-.gallery {
-    width: 90%;
-    display: grid;
-    float: right;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    column-gap: 10px;
-    row-gap: 20px; 
+@supports (display: grid) {
+    .gallery {
+        width: 80%;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+    }
 }
 
-.gallery .gallery__image {
-    width: 95%;
-    border-top: 4px #EC008C solid;
+@supports not (display: grid) {
+    .gallery {
+        width: 80%;
+        display: flex;
+        flex-wrap: wrap;
+        float: right;
+        align-content: space-around;
+        gap: 20px;
+    }
 }
 
-.gallery .gallery__image:hover {
-    width: 100%;
+.gallery__image {
+    max-width: 100%;
+    border-top: 3px solid #EF008E;
 }
 
-/* Contact */
+/*
+######################################
+SEKCJA "CONTACT"
+######################################
+*/
 
-#contact {
-    display: grid;
-    width: 90%;
-    float: right;
-    grid-template-columns: repeat(2, 1fr);
+.contact {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
     align-items: center;
-    margin-top: 100px;
 }
 
-#contact h2 {
-    grid-column: span 2;
-    position: relative;
-    top: 50px;
+.contact__img {
+    max-width: 100%;
 }
 
-#contact img {
-    grid-column: span 1;
+.contact__address {
+    padding: 70px;
+    font-style: normal;
 }
 
-#contact address {
-    color: rgb(204, 200, 255, 0.5);
-    font-size: 12px;
-    grid-column: span 1;
-    text-align: left;
-    padding: 10%;
-    line-height: 1.5;
-}
-
-#contact form {
-    grid-column: span 1;
-    text-align: left;
-    display: flex;
-    flex-direction: column;
-    grid-gap: 20px;
-}
-
-.form__field {
-    display: flex;
-    flex-direction: column;
-    grid-gap: 5px;
-}
-
-.form__label {
-    color: rgb(204, 200, 255, 0.5);
-    font-size: 12px;
-}
-
-.form__input {
-    background-color: rgb(204, 200, 255, 0.2);
-    padding: 5px 10px;
-    font-size: 12px; 
-    border: none; 
-    border-radius: 3px;
-    width: 300px;
-}
-
-.form__field button {
-    width: 110px;
+.contact__form {
+    flex-basis: 50%;
+    padding-top: 40px;
 }
 
 
-/* Social links */
-
-.social-links {
-    display: flex;
-    flex-direction: column;
-    grid-gap: 10px;
+@media (max-width: 640px) and (device-height: 360px){
+    .concerts__image {
+    max-width: 10%;
+    border-bottom: 3px solid #EF008E;
+    }
 }
-.social-links__item {
-    height:32px;
-    width:32px;
-    overflow: hidden;
-    font-size:32px;
-    background-size: 32px 32px;
-    background-repeat: no-repeat;
-    opacity: 0.6;
-}
-
-.social-links__item:hover {
-    opacity: 1;
-}
-
-.social-links a {
-    color: transparent;
-}
-
-.social-links__item:nth-child(1) {
-    background-image: url("images/fb.svg");
-    margin-bottom: 8px;
-}
-
-.social-links__item:nth-child(2) {
-    background-image: url("images/insta.svg");
-}
-
-.social-links__item:nth-child(3) {
-    background-image: url("images/last.svg");
-}
-
-.social-links__item:nth-child(4) {
-    background-image: url("images/yout.svg");
-}
-
