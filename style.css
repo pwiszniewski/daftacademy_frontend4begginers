@@ -431,9 +431,17 @@ SEKCJA "CONTACT"
 }
 
 
-@media (max-width: 640px) and (device-height: 360px){
-    .concerts__image {
-    max-width: 10%;
-    border-bottom: 3px solid #EF008E;
+@media (max-width: 640px) and (max-height: 360px){
+    .page-content {
+        padding: 0;
+        margin: 15px;
     }
+
+    .content-section {
+        align-items: center;
+        justify-content: center;
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+
 }
