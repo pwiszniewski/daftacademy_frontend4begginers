@@ -10,10 +10,10 @@ const ticketButtons = document.querySelectorAll('.concerts__info .button');
 
 ticketButtons.forEach(btn => {
 	 btn.addEventListener('click', event => {
-		const newParagraph = document.createElement('span');
+		const newParagraph = document.createElement('div');
 		newParagraph.textContent = 'Have fun!';
 		newParagraph.style.fontSize = '16px';
-		newParagraph.style.height = '40px';
+		newParagraph.style.height = btn.style.height;
 		newParagraph.classList.add('some-class');
 		btn.replaceWith(newParagraph);
 	 });
