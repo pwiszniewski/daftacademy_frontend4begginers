@@ -129,8 +129,7 @@ NAWIGACJA
 ######################################
 */
 .page-navigation_menuIcon {
-    /*display: none;*/
-    text-align: right;
+    display: none;
 }
 
 .page-navigation__items {
@@ -425,15 +424,16 @@ SEKCJA "CONTACT"
     .page-navigation_menuIcon {
         display: block;
         color: #EF008E;
-        text-align: center;
     }
 
     .page-navigation__items {
         display: none;
+        text-align: center;
     }
 
     .page-navigation__items.toggled {
         display: block;
+        text-align: center;
     }
 
     /*
