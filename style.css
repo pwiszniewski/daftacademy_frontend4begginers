@@ -128,6 +128,9 @@ GŁÓWNY LAYOUT STRONY
 NAWIGACJA
 ######################################
 */
+.page-navigation_menuIcon {
+    display: none;
+}
 
 .page-navigation__items {
     padding-top: 15px;
@@ -418,8 +421,18 @@ SEKCJA "CONTACT"
     ######################################
     */
 
+    .page-navigation_menuIcon {
+        display: block;
+        color: #EF008E;
+    }
+
     .page-navigation__items {
+        display: none;
         text-align: center;
+    }
+
+    .page-navigation__items.toggled {
+        display: block;
     }
 
     /*
