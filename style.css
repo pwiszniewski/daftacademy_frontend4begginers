@@ -429,6 +429,7 @@ SEKCJA "CONTACT"
     .page-navigation__items {
         display: none;
         text-align: center;
+        align-items: center;
     }
 
     .page-navigation__items.toggled {
