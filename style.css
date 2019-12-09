@@ -425,16 +425,15 @@ SEKCJA "CONTACT"
     .page-navigation_menuIcon {
         display: block;
         color: #EF008E;
+        text-align: center;
     }
 
     .page-navigation__items {
         display: none;
-        text-align: right;
     }
 
     .page-navigation__items.toggled {
         display: block;
-        text-align: right;
     }
 
     /*
