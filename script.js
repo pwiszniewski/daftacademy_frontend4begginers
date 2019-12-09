@@ -14,6 +14,7 @@ ticketButtons.forEach(btn => {
 		newParagraph.textContent = 'Have fun!';
 		newParagraph.style.fontSize = '16px';
 		newParagraph.style.height = btn.style.height;
+		newParagraph.style.padding = btn.style.padding;
 		newParagraph.classList.add('some-class');
 		btn.replaceWith(newParagraph);
 	 });
