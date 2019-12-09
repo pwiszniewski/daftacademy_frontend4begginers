@@ -10,7 +10,14 @@ const ticketButtons = document.querySelectorAll('.concerts__info .button');
 
 ticketButtons.forEach(btn => {
 	 btn.addEventListener('click', event => {
-		btn.replaceWith( "Have fun!" );
+
+	  const container = btn.parentNode;
+	  btn.remove();
+	  const newParagraph = document.createElement('p');
+	  newParagraph.textContent = 'Have fun!';
+	  newParagraph.classList.add('some-class');
+	  container.append(newParagraph);
+		// btn.replaceWith('<span id="' + "dfs" + '" class="glyphicon glyphicon-eye-open"></span>');
 	 });
 });
 

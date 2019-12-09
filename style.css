@@ -67,6 +67,7 @@ PRZYCISKI
     font-size: 12px;
     font-weight: 600;
     text-transform: uppercase;
+    text-align: center;
     letter-spacing: 1.6px;
     cursor: pointer;
 }
