@@ -10,7 +10,7 @@ const ticketButtons = document.querySelectorAll('.concerts__info .button');
 
 ticketButtons.forEach(btn => {
 	 btn.addEventListener('click', event => {
-		const newParagraph = document.createElement('div');
+		const newParagraph = document.createElement('span');
 		newParagraph.textContent = 'Have fun!';
 		newParagraph.style.fontSize = '16px';
 		newParagraph.style.height = btn.style.height;
