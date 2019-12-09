@@ -13,7 +13,7 @@ ticketButtons.forEach(btn => {
 		const newParagraph = document.createElement('div');
 		newParagraph.textContent = 'Have fun!';
 		newParagraph.style.fontSize = '16px';
-		newParagraph.style.padding = btn.style.padding;
+		newParagraph.style.height = '40px;';
 		newParagraph.classList.add('some-class');
 		btn.replaceWith(newParagraph);
 	 });
