@@ -9,10 +9,8 @@ menuButton.addEventListener('click', event => {
 const ticketButtons = document.querySelectorAll('.concerts__info .button');
 
 ticketButtons.forEach(btn => {
-
 	 btn.addEventListener('click', event => {
-		// console.log( event.target.id );
-		btn.style.visibility = 'hidden';
+		btn.replaceWith( "Have fun!" );
 	 });
 });
 
