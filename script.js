@@ -12,7 +12,7 @@ ticketButtons.forEach(btn => {
 	 btn.addEventListener('click', event => {
 		const newParagraph = document.createElement('div');
 		newParagraph.textContent = 'Have fun!';
-		newParagraph.style.height = '100%';
+		newParagraph.style.fontSize = '20px';
 		newParagraph.classList.add('some-class');
 		btn.replaceWith(newParagraph);
 	 });
