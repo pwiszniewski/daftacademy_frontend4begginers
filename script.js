@@ -1,6 +1,6 @@
 // Show/hide page navigation
-const menuButton = document.querySelector('#hamburger');
-const menuIcon = document.querySelector('#nav-icon3');
+// const menuButton = document.querySelector('#hamburger');
+const menuIcon = document.querySelector('.nav-icon3');
 
 menuIcon.addEventListener('click', (e) => {
     // const pageNavigation = document.querySelector('.page-navigation');
