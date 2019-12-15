@@ -3,10 +3,9 @@
 const menuIcon = document.querySelector('.nav-icon3');
 
 menuIcon.addEventListener('click', (e) => {
-    // const pageNavigation = document.querySelector('.page-navigation');
-    // pageNavigation.classList.toggle('page-navigation--visible');
+    const pageNavigation = document.querySelector('.page-navigation');
+    pageNavigation.classList.toggle('page-navigation--visible');
     menuIcon.classList.toggle('nav-icon3--open');
-    // menuIcon.toggleClass('open');
 });
 
 // menuButton.addEventListener('click', (e) => {
