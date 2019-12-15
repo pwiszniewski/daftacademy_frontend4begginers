@@ -432,10 +432,14 @@ SEKCJA "CONTACT"
 
     .page-navigation {
         display: none;
+        transform: scale(0);
+        transition-property: transform; 
+        transition-duration: 500ms;
     }
 
     .page-navigation--visible {
         display: block;
+        transform: scale(1);
     }
 
     .nav-icon3 {
