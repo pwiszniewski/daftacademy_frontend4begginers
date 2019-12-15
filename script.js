@@ -2,11 +2,17 @@
 const menuButton = document.querySelector('#hamburger');
 const menuIcon = document.querySelector('#nav-icon3');
 
-menuButton.addEventListener('click', (e) => {
-    const pageNavigation = document.querySelector('.page-navigation');
-    pageNavigation.classList.toggle('page-navigation--visible');
+menuIcon.addEventListener('click', (e) => {
+    // const pageNavigation = document.querySelector('.page-navigation');
+    // pageNavigation.classList.toggle('page-navigation--visible');
     menuIcon.toggleClass('open');
 });
+
+// menuButton.addEventListener('click', (e) => {
+//     const pageNavigation = document.querySelector('.page-navigation');
+//     pageNavigation.classList.toggle('page-navigation--visible');
+//     menuIcon.toggleClass('open');
+// });
 
 // Mark ticket as bought
 const concerts = document.querySelector('#concerts');
