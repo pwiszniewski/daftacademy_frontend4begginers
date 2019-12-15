@@ -1,30 +1,34 @@
-const menuButton = document.querySelector('.page-navigation_menuIcon');
+// Show/hide page navigation
+const menuButton = document.querySelector('#hamburger');
 
-menuButton.addEventListener('click', event => {
-	console.log('clicked');
-	let menu = document.querySelector('.page-navigation__items');
-	menu.classList.toggle('toggled');
+menuButton.addEventListener('click', (e) => {
+    const pageNavigation = document.querySelector('.page-navigation');
+    pageNavigation.classList.toggle('page-navigation--visible');
 });
 
-const ticketButtons = document.querySelectorAll('.concerts__info .button');
+// Mark ticket as bought
+const concerts = document.querySelector('#concerts');
 
-ticketButtons.forEach(btn => {
-	 btn.addEventListener('click', event => {
-		const btnRepacement = document.createElement('span');
-		btnRepacement.textContent = 'Have fun!';
-		btnRepacement.style.fontSize = '16px';
-		btnRepacement.style.height = btn.style.height;
-		btnRepacement.classList.add('btn-replace');
-		btn.replaceWith(btnRepacement);
-	 });
+concerts.addEventListener('click', (e) => {
+    if (e.target.classList.contains('button--buy-ticket')) {
+        const buyTicketButton = e.target;
+        const haveFunText = document.createElement('p');
+        haveFunText.textContent = 'Have fun!';
+
+        const buttonContainer = buyTicketButton.parentElement;
+        buttonContainer.insertBefore(haveFunText, buyTicketButton);
+        buyTicketButton.remove();
+        // OR
+        // buyTicketButton.replaceWith(haveFunText);
+    }
 });
 
-
+// Log form data
 const contactForm = document.querySelector('.contact__form');
 
-contactForm.addEventListener('submit', function(event) {
-	event.preventDefault();
-	const formData = new FormData(this);
-	const entires = formData.entries();
-	console.log(Object.fromEntries(entires));
+contactForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const formData = new FormData(e.target);
+    const formObject = Object.fromEntries(formData);
+    console.log(formObject);
 });

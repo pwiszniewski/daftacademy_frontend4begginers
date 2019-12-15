@@ -67,7 +67,6 @@ PRZYCISKI
     font-size: 12px;
     font-weight: 600;
     text-transform: uppercase;
-    text-align: center;
     letter-spacing: 1.6px;
     cursor: pointer;
 }
@@ -129,9 +128,6 @@ GŁÓWNY LAYOUT STRONY
 NAWIGACJA
 ######################################
 */
-.page-navigation_menuIcon {
-    display: none;
-}
 
 .page-navigation__items {
     padding-top: 15px;
@@ -362,6 +358,10 @@ SEKCJA "CONTACT"
     padding-top: 40px;
 }
 
+.menu-button {
+    display: none;
+}
+
 
 /* //////////////////////////////// MOBILE STYLES //////////////////////////////// */
 
@@ -422,18 +422,7 @@ SEKCJA "CONTACT"
     ######################################
     */
 
-    .page-navigation_menuIcon {
-        display: block;
-        color: #EF008E;
-    }
-
     .page-navigation__items {
-        display: none;
-        text-align: center;
-    }
-
-    .page-navigation__items.toggled {
-        display: block;
         text-align: center;
     }
 
@@ -618,5 +607,17 @@ SEKCJA "CONTACT"
     .contact__address {
         padding: 0;
         line-height: 1.77;
+    }
+
+    .menu-button {
+        display: block;
+    }
+
+    .page-navigation {
+        display: none;
+    }
+
+    .page-navigation--visible {
+        display: block;
     }
 }
