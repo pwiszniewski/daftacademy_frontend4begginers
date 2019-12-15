@@ -430,16 +430,23 @@ SEKCJA "CONTACT"
         display: block;
     }
 
+    @keyframes my-demo {
+        from { 
+            transform: scale(0);
+        }
+        to {
+            transform: scale(1);
+        }
+    }
+
     .page-navigation {
         display: none;
-        transform: scale(0);
-        transition-property: transform; 
-        transition-duration: 500ms;
+        animation-duration: 1s;
     }
 
     .page-navigation--visible {
         display: block;
-        transform: scale(1);
+        animation-name: my-demo;
     }
 
     .nav-icon3 {
