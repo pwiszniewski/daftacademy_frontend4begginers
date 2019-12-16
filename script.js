@@ -8,6 +8,7 @@ menuButton.addEventListener('click', (e) => {
 	menuIcon.classList.toggle('menu-icon--open');
 });
 
+// Show gallery image animation
 const galleryImages = document.querySelectorAll(".gallery__image");
 const enter = "mouseenter";
 const leave = "mouseleave";
