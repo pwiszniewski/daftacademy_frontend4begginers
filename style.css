@@ -311,9 +311,35 @@ SEKCJA "PHOTOS"
     margin-left: 20px;
 }
 
+@keyframes rotateAnim {
+  0% { transform: rotate(0);}
+  100% {transform: rotate(1turn);}
+}
+
+@keyframes sizeAnim {
+    0% { transform: scale(1);}
+    50% {transform: scale(0.8);}
+    75% {transform: scale(1.2);}
+    100% {transform: scale(1);}
+}
+@keyframes colorAnim {
+    0% {filter: hue-rotate(0deg);}
+    50% {filter: hue-rotate(240deg);}
+    100% {filter: hue-rotate(0deg);}
+}
+
 .gallery__image {
     width: 100%;
     border-top: 3px solid #EF008E;
+}
+
+.gallery__image.mouseenter {
+    animation:  sizeAnim 1s linear,
+                rotateAnim 1s 1s;
+}
+
+.gallery__image.mouseleave {
+    animation:  colorAnim 2s;
 }
 
 @supports (display: grid) {
