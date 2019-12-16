@@ -488,8 +488,8 @@ SEKCJA "CONTACT"
       -moz-transition: .5s ease-in-out;
       -o-transition: .5s ease-in-out;
       transition: .5s ease-in-out;
+      outline: none;
       cursor: pointer;
-      border: none;
     }
 
     .nav-icon3 span {
