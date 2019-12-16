@@ -454,6 +454,7 @@ SEKCJA "CONTACT"
 
     .menu-button {
         display: block;
+        height: 100px;
     }
 
     @keyframes my-demo {
