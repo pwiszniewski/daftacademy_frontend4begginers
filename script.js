@@ -1,11 +1,11 @@
 // Show/hide page navigation
 const menuButton = document.querySelector('#hamburger');
-const menuIcon = document.querySelector('.nav-icon3');
+const menuIcon = document.querySelector('.nav-icon');
 
 menuButton.addEventListener('click', (e) => {
 	const pageNavigation = document.querySelector('.page-navigation');
 	pageNavigation.classList.toggle('page-navigation--visible');
-	menuIcon.classList.toggle('nav-icon3--open');
+	menuIcon.classList.toggle('nav-icon--cross');
 });
 
 const galleryImages = document.querySelectorAll(".gallery__image");
