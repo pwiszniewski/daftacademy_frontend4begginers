@@ -324,7 +324,7 @@ SEKCJA "PHOTOS"
 }
 @keyframes colorAnim {
     0% {filter: hue-rotate(0deg);}
-    50% {filter: hue-rotate(120deg);}
+    50% {filter: hue-rotate(240deg);}
     100% {filter: hue-rotate(0deg);}
 }
 
