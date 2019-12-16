@@ -324,7 +324,7 @@ SEKCJA "PHOTOS"
 }
 @keyframes colorAnim {
     0% {filter: hue-rotate(0deg);}
-    50% {filter: hue-rotate(240deg);}
+    50% {filter: hue-rotate(120deg);}
     100% {filter: hue-rotate(0deg);}
 }
 
@@ -488,7 +488,6 @@ SEKCJA "CONTACT"
       -moz-transition: .5s ease-in-out;
       -o-transition: .5s ease-in-out;
       transition: .5s ease-in-out;
-      outline: none;
       cursor: pointer;
     }
 

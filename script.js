@@ -1,12 +1,33 @@
 // Show/hide page navigation
-const menuButton = document.querySelector('#hamburger');
+// const menuButton = document.querySelector('#hamburger');
 const menuIcon = document.querySelector('.nav-icon3');
 
-menuButton.addEventListener('click', (e) => {
+menuIcon.addEventListener('click', (e) => {
 	const pageNavigation = document.querySelector('.page-navigation');
 	pageNavigation.classList.toggle('page-navigation--visible');
 	menuIcon.classList.toggle('nav-icon3--open');
 });
+
+
+// const gallery = document.querySelector('.gallery');
+
+// gallery.addEventListener('mouseenter', (e) => {
+// 	console.log('mouseenter');
+// 	if (e.target.classList.contains('gallery__image')) {
+// 	// 	const galleryImage = e.target;
+		
+// 	// 	const move = "mouseenter";
+// 	// 	const leave = "mouseleave";
+// 	// 	galleryImage.classList.remove(leave);
+// 	// 	galleryImage.classList.add(move);
+  
+// 	// 	galleryImage.addEventListener("mouseleave",function(){
+// 	// 		console.log('mouseleave');
+// 	// 		galleryImage.classList.remove(move);
+// 	// 		galleryImage.classList.add(leave);
+// 	// 	  }
+// 	}
+// });
 
 const galleryImages = document.querySelectorAll(".gallery__image");
 const enter = "mouseenter";
